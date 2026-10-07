@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [linux-x86_64] # canary first; expand to all 4 targets after green
+        os: [linux-x86_64, linux-aarch64, macos-x86_64, macos-aarch64]
     uses: ./.github/workflows/build-unix.yml
     with:
       os: ${{ matrix.os }}
