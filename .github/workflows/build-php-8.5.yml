@@ -1,0 +1,21 @@
+name: "Build PHP 8.5"
+
+on:
+  push:
+    branches: [ci/php-85-build]
+
+jobs:
+  build:
+    name: "PHP 8.5 ${{ matrix.os }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [linux-x86_64] # canary first; expand to all 4 targets after green
+    uses: ./.github/workflows/build-unix.yml
+    with:
+      os: ${{ matrix.os }}
+      php-version: '8.5'
+      extensions: "bcmath,openssl,tokenizer,curl,phar,filter,mbstring,ctype,dom,libxml,simplexml"
+      build-cli: false
+      build-micro: true
+      prefer-pre-built: true
