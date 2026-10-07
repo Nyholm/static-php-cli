@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [linux-x86_64, linux-aarch64, macos-x86_64, macos-aarch64]
+        os: [macos-x86_64] # retry: setup-php failed on macos-15-intel runner
     uses: ./.github/workflows/build-unix.yml
     with:
       os: ${{ matrix.os }}
