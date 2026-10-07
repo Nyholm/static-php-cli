@@ -231,7 +231,7 @@ jobs:
       - name: "Setup PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.5  # 8.4 no longer installable on macos-15-intel (setup-php dropped Intel support)
           tools: pecl, composer
           extensions: curl, openssl, mbstring
           ini-values: memory_limit=-1
